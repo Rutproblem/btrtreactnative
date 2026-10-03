@@ -3,12 +3,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import StackNavigator from './src/navigation/StackNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import TabNavigator from './src/navigation/TabNavigator';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { DrawerNavigator } from './src/navigation/DrawerNavigator';
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <TabNavigator></TabNavigator>
-    </NavigationContainer>
+    <GestureHandlerRootView>
+      <NavigationContainer>
+        {/* <TabNavigator></TabNavigator> */}
+        <DrawerNavigator></DrawerNavigator>
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
 

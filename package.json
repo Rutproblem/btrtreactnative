@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@react-navigation/drawer": "^7.14.3",
+    "expo": "^57.0.26",
+    "react-dom": "19.2.3",
+    "react-native-gesture-handler": "~2.32.0",
+    "react-native-reanimated": "4.5.1",
+    "react-native-worklets": "0.10.1"
+  }
+}

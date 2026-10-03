@@ -14,6 +14,10 @@ return(
         <Pressable style={styles.button}>
             <Text style={styles.btnText}>Go to About</Text>
         </Pressable>
+        <Button
+            title="Open Menu"
+            onPress={()=> navigation.openDrawer()}
+        ></Button>
 
     </View>
 )
