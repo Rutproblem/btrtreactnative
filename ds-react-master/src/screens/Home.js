@@ -1,5 +1,6 @@
 import { React } from 'react';
-import { Text, StyleSheet, View, Button, Pressable } from 'react-native';
+import { Text, Image, StyleSheet, View, Button, Pressable } from 'react-native';
+import Swiper from 'react-native-swiper';
 
 export default function Home({ navigation }) {
     const openAboutTab = () => {
@@ -8,7 +9,46 @@ export default function Home({ navigation }) {
 
 return(
     <View style={styles.container}>
-        <Text style={styles.emoji}>🏠</Text>
+
+        <View style={styles.sliderContainer}>
+            <Swiper
+                autoplay
+                autoplayTimeout={5}
+                activeDotColor='"#22D4FF'
+                loop={true}
+            >
+                <View style={styles.item}>
+                    <Image
+                        source={require("../../assets/rm1.jpg")}
+                        style={styles.imgItem}
+                        resizeMode='cover'
+                    ></Image>
+                </View>
+                <View style={styles.item}>
+                    <Image
+                        source={require("../../assets/rm2.jpg")}
+                        style={styles.imgItem}
+                        resizeMode='cover'
+                    ></Image>
+                </View>
+                <View style={styles.item}>
+                    <Image
+                        source={require("../../assets/rm3.jpg")}
+                        style={styles.imgItem}
+                        resizeMode='cover'
+                    ></Image>
+                </View>
+                <View style={styles.item}>
+                    <Image
+                        source={require("../../assets/rm4.jpg")}
+                        style={styles.imgItem}
+                        resizeMode='cover'
+                    ></Image>
+                </View>
+            </Swiper>
+        </View>
+
+        {/* <Text style={styles.emoji}>🏠</Text>
         <Text style={styles.title}>Home Screen</Text>
         <Text style={styles.description}>Welcome to the Home Screen</Text>
         <Pressable style={styles.button}>
@@ -17,7 +57,7 @@ return(
         <Button
             title="Open Menu"
             onPress={()=> navigation.openDrawer()}
-        ></Button>
+        ></Button> */}
 
     </View>
 )
@@ -31,6 +71,24 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 24,
         backgroundColor: "#f8fafc"
+    },
+    sliderContainer: {
+        width: "90%",
+        height: 200,
+        justifyContent: 'center',
+        alignSelf: 'center',
+        marginTop: 10,
+        borderRadius: 8,
+        overflow: 'hidden'
+    },
+    item: {
+        flex: 1,
+        justifyContent: 'center'
+    },
+    imgItem: {
+        width: '100%',
+        height: '100%',
+        borderRadius: 8
     },
     emoji: {
         fontSize: 64,
