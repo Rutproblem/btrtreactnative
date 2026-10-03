@@ -1,5 +1,5 @@
-import React from 'react'
-import { Text, StyleSheet, View, Button, Pressable } from 'react-native'
+import { React } from 'react';
+import { Text, StyleSheet, View, Button, Pressable } from 'react-native';
 
 export default function Home({ navigation }) {
     const openAboutTab = () => {
