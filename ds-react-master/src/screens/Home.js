@@ -14,7 +14,8 @@ return(
             <Swiper
                 autoplay
                 autoplayTimeout={5}
-                activeDotColor='"#22D4FF'
+                activeDotColor='#22D4FF'
+                showsButtons={true}
                 loop={true}
             >
                 <View style={styles.item}>
