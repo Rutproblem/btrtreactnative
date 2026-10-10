@@ -16,6 +16,7 @@ export default function Icon({name, iconText}) {
         </View>
     )
 }
+
 const styles = Stylesheet.create({
     iconContainer: {
         alignItems: 'center',
