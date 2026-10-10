@@ -1,0 +1,28 @@
+{
+    "popularProducts":[
+    {
+        "id": 1,
+        "name": "iPad 8",
+        "price": "$880",
+        "category": "Tablet",
+        "image": "https://unsplash.com/photos/three-tablets-stacked-on-a-white-surface-8m5fv2W0O3M",
+        "description": "Lorem ipsum, cogito ergo sum, ego sum ego, veni vidi vici"
+    },
+    {
+        "id": 2,
+        "name": "iPhone 18 Pro",
+        "price": "$1100",
+        "category": "Smartphone",
+        "image": "https://unsplash.com/photos/a-white-cell-phone-sitting-on-top-of-a-pink-and-blue-background-0ej0jMwPFhQ",
+        "description": "Lorem ipsum, cogito ergo sum, ego sum ego, veni vidi vici"
+    },
+    {
+        "id": 3,
+        "name": "iPhone 17 Pro",
+        "price": "$1000",
+        "category": "Smartphone",
+        "image": "https://unsplash.com/photos/a-white-cell-phone-sitting-on-top-of-a-pink-and-blue-background-0ej0jMwPFhQ",
+        "description": "Lorem ipsum, cogito ergo sum, ego sum ego, veni vidi vici"
+    }
+]
+}

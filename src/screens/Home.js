@@ -1,14 +1,22 @@
 import { React } from 'react';
-import { Text, Image, StyleSheet, View, Button, Pressable } from 'react-native';
+import { Text, Image, StyleSheet, View, Button, Pressable, Image, Flatlist } from 'react-native';
 import Swiper from 'react-native-swiper';
 import Icon from '../components/Icons';
+import Item from '../components/Item';
+import data from '../data/data.json'
 
 export default function Home({ navigation }) {
     const openAboutTab = () => {
         navigation.navigate('AboutTab');
     };
 
-return(
+    const products = data.popularProducts;
+    const [showAll, setShowAll] = useStats(false);
+
+    const visibleProducts = showAll ? products : products.slice(0,3);
+
+    const renderHeader = () => {
+        return(
     <View style={styles.container}>
 
         <View style={styles.sliderContainer}>
@@ -68,8 +76,44 @@ return(
         ></Button> */}
 
     </View>
-)
+    );
+}
  
+const renderProduct =({ item }) => {
+    return <Item item={item}></Item>
+}
+
+const renderFooter = () => {
+    if(products.length <= 3) {
+        return null;
+    }
+
+    return(
+        <Pressable
+            style={styles.viewMoreBtn}
+            onPress={() => setShowAll(!showAll)}
+        >
+            <Text style={styles.viewMoreText}>
+                {showAll ? "Show Less" : "Show More"}
+            </Text>
+        </Pressable>
+    )
+}
+
+return (
+    <Flatlist
+        style={styles.container}
+        contentContainerStyle={styles.listContent}
+        data={visibleProducts}
+        renderItem={ renderProduct}
+        keyExtractor={(item) => item.id.toString}
+        ListHeaderComponent={renderHeader}
+        ListFooterComponent={renderFooter}
+        extraData={showAll}
+        showVerticalScrollIndicator={false}
+    ></Flatlist>
+)
+
 }
 
 const styles = StyleSheet.create({
@@ -134,5 +178,67 @@ const styles = StyleSheet.create({
         marginTop: 30,
         flexDirection: 'row',
         justifyContent: 'space-between'
-    }
+    },
+    container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+
+  listContent: {
+    paddingBottom: 30,
+  },
+
+  sliderContainer: {
+    width: "90%",
+    height: 200,
+    alignSelf: "center",
+    marginTop: 10,
+    borderRadius: 8,
+    overflow: "hidden",
+  },
+
+  item: {
+    flex: 1,
+    justifyContent: "center",
+  },
+
+  imgItem: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 8,
+  },
+
+  iconsContainer: {
+    width: "90%",
+    alignSelf: "center",
+    marginTop: 25,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+
+  sectionTitle: {
+    width: "90%",
+    alignSelf: "center",
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#222",
+    marginTop: 30,
+    marginBottom: 20,
+  },
+
+  viewMoreButton: {
+    width: "90%",
+    alignSelf: "center",
+    backgroundColor: "#22C9F3",
+    paddingVertical: 15,
+    borderRadius: 8,
+    alignItems: "center",
+    marginTop: 10,
+  },
+
+  viewMoreText: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 16,
+  }
 })
