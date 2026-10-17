@@ -3,7 +3,8 @@ import { Ionicons } from "@expo/vector-icons";
 
 import {
     HomeStackNavigator,
-    AboutStackNavigator
+    AboutStackNavigator,
+    IosStackNavigator
 } from './StackNavigator';
 
 const Tab = createBottomTabNavigator();
@@ -32,6 +33,11 @@ export default function TabNavigator() {
 
                     if(route.name === "HomeTab") {
                         iconName = focused ? "home" : "home-outline";
+                    }
+                    else if (route.name === "IosProducts") {
+                        iconName = focused 
+                        ? "phone-portrait" 
+                        : 'phone-portrait-outline'
                     }
                     else if (route.name === "AboutTab") {
                         iconName = focused 
@@ -64,6 +70,14 @@ export default function TabNavigator() {
                 component={AboutStackNavigator}
                 options={{
                     tabBarLabel: "About"
+                }}
+            ></Tab.Screen>
+
+            <Tab.Screen
+                name="IosProducts"
+                component={IosStackNavigator}
+                options={{
+                    tabBarLabel: "iOS"
                 }}
             ></Tab.Screen>
 

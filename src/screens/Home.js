@@ -3,7 +3,7 @@ import { Text, StyleSheet, View, Button, Pressable, Image, FlatList } from 'reac
 import Swiper from 'react-native-swiper';
 import Icon from '../components/Icons';
 import Item from '../components/Item';
-import data from '../data/data.json'
+import data from '../data/data.json';
 
 export default function Home({ navigation }) {
     const openAboutTab = () => {
@@ -51,7 +51,14 @@ export default function Home({ navigation }) {
             </View>
 
             <View style={styles.iconsContainer}>
-                <Icon name="cellphone" iconText="iPhone"></Icon>
+                <Pressable
+                    onPress={() => navigation.navigate("Ios")}
+                    accessibilityRole='button'
+                    accessibilityLabel='Go to iOS products'
+                >
+                    <Icon name="cellphone" iconText="iPhone"></Icon>
+                </Pressable>
+                
                 <Icon name="android" iconText="Samsung"></Icon>
                 <Icon name="laptop" iconText="Laptop"></Icon>
             </View>
